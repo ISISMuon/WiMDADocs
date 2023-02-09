@@ -1,0 +1,70 @@
+=======
+Analyse
+=======
+
+The analyse window is used for fitting the muon data in WiMDA. There are several modes of operation, but the most
+commonly used mode is the fitting of F-B asymmetry.
+
+.. image:: screenshots/wimda_analyse.PNG
+    :width: 400
+    :alt: The Analyse window.
+    :align: center
+
+Setting Up Asymmetry functions
+==============================
+
+Overview
+--------
+
+The muon asymmetry is usually well modelled by a function of the form
+
+.. math:: A(t) = A_{\rm r} \sum_i c_i O_i(t)R_i(t) + A_{\rm bl}e^{-(\lambda_{\rm bl}t)^\beta},
+
+where :math:`A_{\rm r}` and :math:`A_{\rm bl}` are the relaxing and baseline asymmetries respectively
+(the initial asymmetry is defined as :math:`A_{\rm i}=A_{\rm r}+A_{\rm bl}`). Each component of the sum
+has fractional amplitude :math:`c_i` and is modelled by the product of an oscillating component :math:`O_i(t)` and
+a relaxing component :math:`R_i(t)`.
+
+The terms in this function correspond to the options in the Analyse window as follows:
+
+.. image:: screenshots/wimda_analyse_annotated.png
+    :width: 400
+    :alt: The Analyse window in WiMDA, annotated to show how they correspond to the muon asymmetry function.
+    :align: center
+
+To fit a function of this form, change the 'Group to fit' to 'FB Asym'. Starting values of the initial, relaxing and
+baseline asymmetries can be set using the panel at the top of the window
+
+.. note:: Only two of the initial, relaxing and baseline amplitudes are independent variables. The dependent amplitude
+    can be selected using the radio buttons on the left hand side of the window.
+
+The oscillating and relaxing parts of each component of the asymmetry function can be selected by changing the
+relevant boxes.
+
+Oscillating Functions
+---------------------
+The functions available by default are:
+
+.. list-table::
+    :width: 100%
+    :widths: 20 40 40
+    :header-rows: 1
+
+    * - Name
+      - Function
+      - Notes
+    * - Rotation Freq
+      - :math:`\cos(2 \pi f t + \phi)`
+      - Use for muon spin precession. :math:`f` is in MHz, and :math:`\phi` is in degrees.
+    * - Rotation Field
+      - :math:`\cos(\gamma_\mu B t + \phi)`
+      - Use for muon spin precession. :math:`B` is in Gauss, :math:`\phi` is in degrees, and :math:`\gamma_\mu` is the
+        muon's gyromagnetic ratio (in Mrad/s/Gauss).
+    * - Kubo-Toyabe
+      - :math:`G_{\rm KT}(\Delta, B, \nu; t)`
+      - Use for a muon interacting with disordered magnetic moments, which have a Gaussian field distribution
+        of width :math:`\Delta` µs :sup:`-1`, in a field of :math:`B` Gauss and strong-collision model dynamics
+        with hop rate :math:`\nu` µs :sup:`-1`. For the functional form, see the muon e-learning resources.
+    * - LF Keren
+      - :math:`G_{\rm Keren}(\Delta, B, \nu; t)`
+      - 

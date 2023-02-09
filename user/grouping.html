@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grouping &mdash; Wimda Documentation  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plotting" href="plotting.html" />
+    <link rel="prev" title="Logbook" href="logbook.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Wimda Documentation
+              <img src="_static/WiMDAicon.ico" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing WiMDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis_tutorial_TEMPO.html">Data Analysis Tutorial : Cl-TEMPO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_menu.html">WiMDA Main Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logbook.html">Logbook</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Grouping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#groups">Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#detector-mapping">Detector Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#asymmetry">Asymmetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binning">Binning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alpha-estimation">Alpha estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deadtime-correction">Deadtime correction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#t0-tgood">T0/Tgood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#background-correction">Background correction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyse.html">Analyse</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wimda Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Grouping</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/grouping.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="grouping">
+<h1>Grouping<a class="headerlink" href="#grouping" title="Permalink to this heading"></a></h1>
+<p>The WiMDA grouping window is where the data, which is stored in the data file as
+multiple histograms of the number of detector counts as a function of time, can be
+processed so that it can be fitted.</p>
+<a class="reference internal image-reference" href="_images/wimda_grouping.png"><img alt="Screenshot of WiMDA's grouping window" class="align-center" src="_images/wimda_grouping.png" style="width: 500px;" /></a>
+<p>The various panels in this window have the following functions:</p>
+<section id="groups">
+<h2>Groups<a class="headerlink" href="#groups" title="Permalink to this heading"></a></h2>
+<p>This sets the number of groups to group all the detector histograms into. For example,
+if you want to look at LF or ZF F/B Asymmetry (very common), select ‘2’ [one group for
+forward, one backward]. If you wish to look at TF-µSR data, select the number of histograms
+you wish to fit.</p>
+</section>
+<section id="detector-mapping">
+<h2>Detector Mapping<a class="headerlink" href="#detector-mapping" title="Permalink to this heading"></a></h2>
+<p>For many instruments, the number of detectors exceeds the maximum number of histograms in WiMDA, which is
+32. To fix this, WiMDA adds together histograms of multiple detectors, but there may be some cases where
+the output of only some of the detectors are used. To do this, select the relevant radio button in this
+section. <em>(In most cases, selecting ‘all’ is fine, but ask your local contact if you are unsure).</em></p>
+</section>
+<section id="asymmetry">
+<h2>Asymmetry<a class="headerlink" href="#asymmetry" title="Permalink to this heading"></a></h2>
+<p>To tell WiMDA which group of detectors are part of the ‘Forward’ and ‘Backward’ group, click ‘Edit’
+at the bottom of the grouping window. This launches the group table editing window, which looks like
+the following:</p>
+<a class="reference internal image-reference" href="_images/wimda_grouptable.png"><img alt="Screenshot of WiMDA's group table window" class="align-center" src="_images/wimda_grouptable.png" style="width: 500px;" /></a>
+<p>This has two groups, with 16 histograms in each (This example is using data from MuSR, which has 64
+detectors, so every histogram is the sum of counts from two detectors). Check the manual for the
+instrument you are using to find out the best grouping for your analysis. Once you’re happy with
+the table, click ‘Done’. If needed, you can now change the ‘Forward group’ and ‘Backward group’
+text boxes on the Grouping window so that the asymmetry is calculated properly.</p>
+</section>
+<section id="binning">
+<h2>Binning<a class="headerlink" href="#binning" title="Permalink to this heading"></a></h2>
+<p>The ‘binning type’ radio buttons can be used to select the way in which the time series data is binned:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Fixed</strong> enables the ‘Bunch factor’ text box [on the right hand side of the window], and bins
+the data so that each new data point takes the average of ‘Bunch factor’ points (i.e., setting this
+to 1 is no binning, and setting this to two reduces the number of data points by half, but makes the
+data points twice as spread out in time).</p></li>
+<li><p><strong>Variable</strong> binning enables the ‘Bin0’ and ‘10 µs bin’ text boxes. Use these to specify the length
+of time for these bins (in µs), and WiMDA will bin the data by interpolating smoothly between these
+two bins (this means data at short times, which will have better statistics, can be binned less than
+the data at long times, which have fewer statistics leading to larger error bars in general).</p></li>
+<li><p><strong>Constant error</strong> binning enables just the ‘Bin0’ text box, which can be used to specify the amount of
+time for the first bin. WiMDA then bins the rest of the data so that all the error bars are the same on
+each of the data points.</p></li>
+</ul>
+</div></blockquote>
+<p>In general, it is simplest to leave the binning as ‘Fixed’, and to specify a reasonable bunch factor. The
+binning chosen can have a large effect on the fits you obtain, so it is important to ensure that whatever
+you choose is sensible (and it’s a good idea to write it down!).</p>
+</section>
+<section id="alpha-estimation">
+<h2>Alpha estimation<a class="headerlink" href="#alpha-estimation" title="Permalink to this heading"></a></h2>
+<p>To account for differences in detector efficiency and geometry, a parameter <span class="math notranslate nohighlight">\(alpha\)</span> is applied
+so the F/B asymmetry is calculated as</p>
+<p><span class="math notranslate nohighlight">\(A(t) = \frac{N_\mathrm{F}-\alpha N_\mathrm{B}}{N_\mathrm{F}+\alpha N_\mathrm{B}}\)</span>.</p>
+<p>To estimate this, load a run with a small transverse field (normally around 20–30 Gauss), ensure the
+estimation method is set to ‘Diamagnetic’ and click ‘Estimate’. This will adjust the data so that the data is
+symmetric about <span class="math notranslate nohighlight">\(A(t)=0\)</span>. The ‘General’ <span class="math notranslate nohighlight">\(\alpha\)</span> estimation method uses the counts directly
+to find <span class="math notranslate nohighlight">\(\alpha\)</span></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The diamagnetic <span class="math notranslate nohighlight">\(\alpha\)</span> estimation option tends to be the most reliable, so it is advisable to
+use this unless you do not have access to a low transverse field run.</p>
+</div>
+</section>
+<section id="deadtime-correction">
+<h2>Deadtime correction<a class="headerlink" href="#deadtime-correction" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deadtime correction is only necessary when dealing with data from pulsed sources.</p>
+</div>
+<p>After a detector has recorded a positron count there is a small time interval before it is able
+to detect another count. It is possible that a positron will arrive within this interval and not
+be recorded. If the measured counts on a histogram is <span class="math notranslate nohighlight">\(N^\mathrm{M}(t)\)</span>, adding a dead time
+correction transforms the data like</p>
+<p><span class="math notranslate nohighlight">\(N(t) = \frac{N^\mathrm{M}(t)}{1 - (\tau_\mathrm{DT}/\tau_\mathrm{bin})N^\mathrm{M}(t) - O(N^\mathrm{M}(t)^2)}\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(N(t)\)</span> is the corrected counts, <span class="math notranslate nohighlight">\(\tau_\mathrm{DT}\)</span> is the dead time of the
+detector, and <span class="math notranslate nohighlight">\(\tau_\mathrm{bin}\)</span> is the bin width. The value of <span class="math notranslate nohighlight">\(\tau_\mathrm{DT}\)</span>
+is a property of the detector, and tends to be of the order of a few nanoseconds. If you require
+a dead time correction, for most experiments select ‘Auto load’, which will load in the deadtime
+from the nexus file. Alternatively, ‘Manual’ lets you change deadtime for each histogram, ‘Model’
+lets you model the deadtime correction by also including higher-order terms
+(<span class="math notranslate nohighlight">\(O(N^\mathrm{M}(t)^2)\)</span> and beyond in the equation above), and ‘Auto Estimate’ makes an estimate of
+the deadtime and uses the same value for all histograms.</p>
+</section>
+<section id="t0-tgood">
+<h2>T0/Tgood<a class="headerlink" href="#t0-tgood" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These options do not usually need to be changed, as the automatic values are usually good enough to
+analyse most datasets.</p>
+</div>
+<p>‘T0’ is defined as the time (in units of the bin number) at which the centre of the muon pulse (or the individual
+muon at a continuous source) reaches the sample. This parameter is usually measured at the start of the
+cycle and baked into the nexus files, so normally you should tick ‘Use File values’ and ‘All Same T0’. If you
+suspect that T0 is wrong, click ‘Search for T0’ to find T0 for your data.</p>
+<p>An incorrect choice of T0 makes the data look like this (notice the sharp uptick at the beginning):</p>
+<a class="reference internal image-reference" href="_images/wimda_badt0.png"><img alt="A bad choice of T0 makes the initial few data look obviously wrong." class="align-center" src="_images/wimda_badt0.png" style="width: 500px;" /></a>
+<p>‘Tgood’ is the number of bins after T0 (i.e., the number of time bins after the centre of the pulse)
+for the whole muon pulse to reach the sample. Like T0, the default setting of a few bins should be
+adequate, but for F/B transverse field analysis Tgood can be made smaller. Tgood has the effect of
+removing points from the data, rather than shifting the time.</p>
+<p>An incorrect choice of Tgood makes the data look like this (notice there is no data until around
+1.5µs!):</p>
+<a class="reference internal image-reference" href="_images/wimda_badtgood.png"><img alt="A bad choice of Tgood eats away too much of the initial data." class="align-center" src="_images/wimda_badtgood.png" style="width: 500px;" /></a>
+<p>Mathematically, if the data bin width is <span class="math notranslate nohighlight">\(\tau_\mathrm{bin}\)</span>, then <span class="math notranslate nohighlight">\(t_0\)</span> and <span class="math notranslate nohighlight">\(t_\mathrm{good}\)</span>
+transforms the count data like <span class="math notranslate nohighlight">\(N(t) \rightarrow N(t+t_0\tau_\mathrm{bin})\)</span>, and all analysis will only
+take place for data <span class="math notranslate nohighlight">\(t&gt;(t_\mathrm{good}+t_0)\tau_\mathrm{bin}\)</span>.</p>
+<p>Finally, ‘Last good bin’ is the last time bin which has usable data, meaning data will only
+be analysed for data at times <span class="math notranslate nohighlight">\(t&lt;t_\mathrm{last}\tau_\mathrm{bin}\)</span>.</p>
+</section>
+<section id="background-correction">
+<h2>Background correction<a class="headerlink" href="#background-correction" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Background correction is only necessary for continuous sources, or for data analysis at very long times
+(where the count rates are low).</p>
+</div>
+<p>The background signal represents particles detected that are not the decay positrons of muons implanted
+in the sample. This background signal must be subtracted from the total positron count. The ‘auto’ option
+corrects for the background count by fitting the data to a muon decay plus background and then subtracting
+the background signal.  The manual option sets the background at a constant value, which can be altered
+in the ‘BG’ text box (in the Histogram T0/BG section). The ‘file’ option allows another measured run to
+define the background. The ‘reg’ option appears when analysing data from continuous sources, and defines
+a region of bins from where the background can be estimated.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="logbook.html" class="btn btn-neutral float-left" title="Logbook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plotting.html" class="btn btn-neutral float-right" title="Plotting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, STFC-ISIS Muon Facility.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

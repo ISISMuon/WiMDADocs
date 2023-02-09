@@ -1,0 +1,335 @@
+=================================
+Data Analysis Tutorial : Cl-TEMPO
+=================================
+
+This tutorial will take you through the analysis of Cl-TEMPO, a ferromagnet
+with a transition temperature of 280 mK (more information can be found
+`here <https://pubs.rsc.org/en/content/articlelanding/2000/JM/b000691m>`_).
+Data can be downloaded from :download:`here <_static/TEMPO_data.zip>`.
+Decompress this in a convenient location on your PC.
+
+Opening the data
+----------------
+
+To open the data, on the WiMDA main menu click 'File' then 'Open'
+
+.. image:: screenshots/wimda_open.PNG
+    :width: 400
+    :alt: Opening muon data
+    :align: center
+
+Next, click 'Browse' and locate the TEMPO data directory on your computer.
+Select any one of the .nxs files in the folder and click 'Load'. This will
+load the data into the program, and several windows will open.
+
+Creating a logbook
+------------------
+
+When you have multiple data files, it is a good idea to view a summary of what data
+the files contain. This can be done in WiMDA by creating a logbook: To create
+one, on the WiMDA main menu, click 'Logbook'. This will bring up a window
+which looks like the following:
+
+.. image:: screenshots/wimda_logbook_empty.PNG
+    :width: 600
+    :alt: WiMDA Logbook
+    :align: center
+
+In the 'From run' and 'To run' text boxes, type in the lowest and highest
+run numbers you are interested in: for our data, this is from 102403 to 102439.
+Next, tick the 'Use T Log' checkbox so the logbook lists out the average *measured*
+temperature for the run (this is important, as this may be different to the
+temperature label in the data file). Now click 'Import Headers'. The run headers will now
+be listed in the window (there will be a warning that some runs could not be read, which is
+OK in this case as some runs were not intentionally not included in the zip file):
+
+.. image:: screenshots/wimda_logbook_TEMPO.png
+    :width: 600
+    :alt: WiMDA Logbook with TEMPO run headers
+    :align: center
+
+The order of these headers are run number, sample, temperature label,
+average temperature (from the T log), applied field, start date and time,
+statistics, aux log 1, aux log 2, comment (the aux logs can be
+defined at the top; we will not be using these for this tutorial). At this stage,
+you may wish to remove some of the blank lines to make it easier to see the headers
+for all the runs.
+
+You can see from this that there is a run with a 20 G applied field (number 102403,
+which is a transverse field calibration run), then a zero field temperature scan
+from 140 mK to 300 mK, and then a finer temperature scan from 150 mK to 280 mK.
+Comments can be written in this window above and below the run header lines,
+and the file can be saved using the 'Save' button at the top.
+
+Grouping and Calibrating
+------------------------
+
+Now we know that run 102403 is the TF20 calibration run, we should open this one first.
+In the WiMDA main menu type 102403 in the text box and click 'Load'. Lots of windows will
+then open up, including the data in the plot window, but the axis limits will need to be
+changed to show the oscillations -- to do this, go to the 'plot parameters' window, and change the
+axis scale so that the oscillations are visible (unticking autoscale X+Y, setting X maximum to 10 and
+autoscaling Y are good options). Depending on personal preference, you may
+also wish to change point style to 'dot' or 'dot+line'. You should end up with a plot which looks
+like this:
+
+.. image:: screenshots/wimda_plot_TEMPO_pregroup.png
+    :width: 600
+    :alt: WiMDA TF20 plot before grouping
+    :align: center
+
+Now, as we're dealing with ISIS data, we should apply a deadtime correction. To do this, go to
+the 'Grouping' window, locate the 'deadtime correction' section and click 'Auto Load'. This
+will apply a deadtime correction of 2.07 ns, a value which was measured at the start of the
+cycle and stored in each data file.
+
+Now we can calibrate our data. In the same window, under 'Alpha Estimation', click
+'Estimate'. This should change the alpha box to 1.135, which is reasonable
+(you should normally expect alpha to be between around 0.5 and 1.5; you should
+double-check the grouping and the run details if you get a value which is
+significantly different). Your grouping window should now look like this:
+
+.. image:: screenshots/wimda_TEMPO_group.png
+    :width: 500
+    :alt: WiMDA TEMPO group window
+    :align: center
+
+And your plot should look like this:
+
+.. image:: screenshots/wimda_plot_TEMPO_postgroup.png
+    :width: 600
+    :alt: WiMDA TF20 plot post grouping
+    :align: center
+
+At this stage, we should check that the binning is appropriate -- if the data is binned
+too much, we will struggle to resolve the low temperature data which has the largest
+muon precession frequency. On the WiMDA main menu, load some of the other runs (using the
+logbook to find the run numbers), and take a look at them. You should find that for
+some of the runs we get a zig-zag pattern at short times (this is most visible if the
+plot point style is 'Dot+line'). For example, at 100 mK (run 102413), the data looks like this:
+
+.. image:: screenshots/wimda_plot_TEMPO_100mK_badbin.png
+    :width: 600
+    :alt: TEMPO data at 100 mK, overbinned
+    :align: center
+
+It looks like there are oscillations, but they are not resolved very poorly due to the data
+being over-binned. Reducing the binning will help us to resolve this better, so go the the
+Grouping window, and reduce 'Bunch factor' to 1. After clicking on the plot, you should find that
+the oscillations are now resolved much better (you may also wish to change some of the plot parameters
+after changing the binning, to show the data more clearly). You should end up with data which looks
+like this:
+
+.. image:: screenshots/wimda_plot_TEMPO_100mK_goodbin.png
+    :width: 600
+    :alt: TEMPO data at 100 mK, with optimal binning
+    :align: center
+
+.. hint::
+    If you cannot find a window, you can bring it up again using the WiMDA main menu.
+
+We are now ready to start fitting!
+
+Fitting the data
+----------------
+
+On the WiMDA main menu, click 'Analyse'. This will bring up the analysis window which
+is used to define a fit function for the data:
+
+.. image:: screenshots/wimda_analysis_initial.png
+    :width: 600
+    :alt: Analysis window before selection of a fit function
+    :align: center
+
+Start with run 102413, which is the lowest temperature run. As we can see a clear
+oscillation in the data (which should be expected, as Cl-TEMPO magnetically orders
+at this temperature), we can try fitting this data to the function
+
+.. math::
+    A(t) = A_\mathrm{r}\cos(2\pi f t + \phi)e^{-\lambda t} +
+    A_\mathrm{bg}e^{-\lambda_\mathrm{bg}t}
+
+where the first term takes into account muons stopped in the sample precessing
+in its local magnetic field due to the ordered electronic moments, and the second
+term takes into account muons which have stopped in the sample holder and relax more
+slowly. We can set this function up by changing the 'Oscillation' box under 'Component 1' to
+'Rotation Freq.', and ensuring that the relaxation of this component is set to 'Lorentzian'.
+
+.. hint::
+    Clicking the name of the fit function will bring up a dialog with further details of
+    the function.
+
+We should also help the fitting algorithm out by giving some good initial guesses of the
+values. Looking at the data, the baseline asymmetry looks like it's about 5 %, and
+the relaxing asymmetry is about 1 %. The precession frequency looks like its about 3 MHz,
+the phase looks about zero, and then the relaxation rate is about 0.5 µs\ :sup:`-1`\.
+The baseline relaxation is fairly slow, so lets start off with
+:math:`\lambda_\mathrm{bg} =0.1` µs\ :sup:`-1`.
+
+For now, lets let everything vary and see how we get on -- so untick all the 'fix'
+checkboxes next to the variables we've changed. Your analysis window should now look like
+this:
+
+.. image:: screenshots/wimda_analysis_TEMPO_guess.png
+    :width: 600
+    :alt: Analysis window with a fit function guess
+    :align: center
+
+We can see how closely our fit function matches the data by clicking 'Plot'. It's not
+too bad, so click 'Fit' and see what happens. The fit log window should open,
+which tells you information about the fit:
+
+.. image:: screenshots/wimda_fitlog_TEMPO.png
+    :width: 600
+    :alt: Wimda fit log window
+    :align: center
+
+The values in the analysis window will also be updated with the fitted values of
+each parameter. You can see that we achieved a :math:`\chi^2` per d.o.f. of 1.131,
+which isn't too bad! Visually, the fit looks like it describes the data well, as
+shown below:
+
+.. image:: screenshots/wimda_TEMPO_100mK_fit.png
+    :width: 600
+    :alt: Wimda fit log window
+    :align: center
+
+
+Creating and populating a fit table
+-----------------------------------
+
+We should now create a fit table so that we can compare the different fits from each
+of the temperature points. On the analyse window, click 'Add to fit table'. This will
+first open a save dialog for you to choose where to save it, and once this is done you
+will be greeted with a window which looks like the following:
+
+.. image:: screenshots/wimda_TEMPO_fittable_initial.png
+    :width: 600
+    :alt: Wimda fit table window
+    :align: center
+
+The symbol '!' is used to denote a comment line, and these will be ignored when we use this
+table later to fit a model to the results. In this window, go to 'Tools' and then tick
+'T from ave in TLog' to make sure the correct temperatures are listed.
+
+.. warning::
+    Do not delete the column heading lines: doing so may result in a 'Range check error'
+
+Let's now fit more data points and add them to the fit table -- use the Logbook to identify
+the run numbers to load to increase the temperature, and use the analyse window to fit each one,
+adding the result to the fit table each time. Note that the pairs of runs 102416 and 102432, and
+102417 and 102437 were taken at the same temperature and field -- so these can be coadded by
+loading one of these runs, then typing the other number into the WiMDA main menu and clicking 'coadd'.
+
+You will find that once you reach 280 mK, the oscillations are no longer
+visible, so do not fit this temperature and higher. Your fit table should look like this:
+
+.. image:: screenshots/wimda_fittable_TEMPO_complete.png
+    :width: 600
+    :alt: Wimda fit table window with oscillation fits
+    :align: center
+
+Refining a fit
+--------------
+
+Now take a look closely at the results in the fit table -- it looks like the baseline lambda
+(:math:`\lambda_\mathrm{bg}`) doesn't change much as a function of temperature, so it might be
+worth fixing. We can find the average of all these values by going to Tools then 'Column Ave'.
+Use the up and down arrows to go to column 15, and this should show an average value of
+0.317(24) µs\ :sup:`-1`. The phase of the oscillation (:math:`\phi`) also doesn't change
+that much (bear in mind this is reported in degrees!), so fix this to the average value,
+which is -11(4) degrees.
+
+Lets now do the fitting again, with the baseline lambda and the phase fixed. We can
+do this by loading the data corresponding to a temperature of 100 mK (use the Logbook to
+find the run number), and set the initial values of the fit parameters to appropriate values.
+Change the 'baseline lambda' and the 'phase' boxes to the average values, and fix them by checking
+the tickbox next to the text boxes.
+
+.. hint::
+    You can load all the parameters of a previous fit by clicking 'Load' in the Analyse window,
+    and opening file called <run_number>.fit.
+
+Now click 'Fit', and if you're happy with the result, create a new fit table (go to the fit
+table window, click 'File' then 'New') and add this fit ot the table. Now fit the rest of the
+dataset by loading the data for increasing temperature, adding to the fit table each time.
+Your final fit table should look like the following:
+
+.. image:: screenshots/wimda_fittable_TEMPO_withfixes.png
+    :width: 600
+    :alt: Wimda fit table window with oscillation fits
+    :align: center
+
+
+Fitting a model to the data
+---------------------------
+
+Now we have successfully fitted the data, we can now try fitting a model to the fitting
+results to learn what's going on inside the material. On the WiMDA main menu, click 'Model'.
+Two new windows should open: one called 'Model', and another called 'Model Plot'.
+
+Lets start off by plotting the muon precession frequency vs temperature. On the 'Model'
+window, change the 'X-Ordinate' and 'Y-Ordinate' column boxes to the columns in the fit
+table (columns 4 and 9 respectively), and set the error of the 'Y-Ordinate' to 'Column'
+set this to the column in the fit table corresponding to the errors on the frequency
+(column 10). Now, in the 'Model Plot' window, click 'Plot'. A QGLE window should open,
+plotting the fitted precession frequency against temperature. Use the relevant boxes in the
+'Model Plot' window to add labels to the x and y axis. The result should look like this:
+
+.. image:: screenshots/QGLE_TEMPO_model_plot.png
+    :width: 600
+    :alt: QGLE plot showing the fit results (before fitting to a model)
+    :align: center
+
+.. note::
+    If you are using WiMDA on Mac/Linux, QGLE might not run when you click 'Plot'.
+    Check out the Troubleshooting page if this happens. TODO: write troubleshooting page
+
+Now, in the 'Model' window, under 'Fitting Model' change the 'Model' to
+'Internal field vs T for ordered magnet'. This is the phenomenological
+function
+
+.. math::
+    f(T) = B_0\Bigg(1-\bigg(\frac{T}{T_c}\bigg)^\alpha\Bigg)^\beta + B_\mathrm{bg}
+
+which models both the low-temperature regime (using the :math:`\alpha` exponent) and the
+critical regime (using the :math:`\beta` critical exponent). We would normally
+expect :math:`\alpha` to be around 1--3 (from Bloch's theory of spin waves) and
+:math:`\beta` to be around 0.3 (from the theory of the critical behaviour of magnets).
+Set the initial value of :math:`\beta=0.3` and :math:`B_0=3.5`\ MHz (as a rough guess,
+extrapolating from the data we have), :math:`T_\mathrm{c}=0.28`\ K, :math:`\alpha=1` and
+:math:`B_\mathrm{bg}=0`. Try initially fixing :math:`alpha` and :math:`B_\mathrm{bg}` by
+checking the boxes next to the variable names. The Model window should now look like the
+following:
+
+.. image:: screenshots/wimda_TEMPO_model_prefit.png
+    :width: 300
+    :alt: Wimda model fit window before fitting
+    :align: center
+
+Now click 'Fit'. The 'Fit log' window will open, and the values not fixed
+in the Model window will be updated with their fitted values.
+
+.. image:: screenshots/wimda_TEMPO_model_postfit.png
+    :width: 300
+    :alt: Wimda model fit window after fitting
+    :align: center
+
+.. image:: screenshots/wimda_TEMPO_model_fitlog.png
+    :width: 400
+    :alt: Wimda model fit log
+    :align: center
+
+To view the fit, on the 'Model Plot' window click 'Plot'. The fit visually looks OK
+for the data we have, and predicts the critical temperature to be 277.7(3) mK, which is
+very close to the reported 280 mK! The value of :math:`\beta` is 0.221(2), which is about
+right for a compound of this type (although a bit on the small side...?).
+
+.. hint::
+    To make the fit curve look smooth around the critical region, make sure
+    'Fit Function xmax' is equal to (or greater than) :math:`T_\mathrm{c}`.
+
+.. image:: screenshots/TEMPO_fit.png
+    :width: 600
+    :alt: Final Ni critical behaviour fit
+    :align: center

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installing WiMDA &mdash; Wimda Documentation  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Analysis Tutorial : Cl-TEMPO" href="analysis_tutorial_TEMPO.html" />
+    <link rel="prev" title="WiMDA Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Wimda Documentation
+              <img src="_static/WiMDAicon.ico" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing WiMDA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-on-windows-computers">Installing on Windows Computers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-on-mac-linux-computers">Installing on Mac/Linux Computers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-wimda">Setting up WiMDA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analysis_tutorial_TEMPO.html">Data Analysis Tutorial : Cl-TEMPO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_menu.html">WiMDA Main Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logbook.html">Logbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grouping.html">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyse.html">Analyse</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wimda Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installing WiMDA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installing-wimda">
+<h1>Installing WiMDA<a class="headerlink" href="#installing-wimda" title="Permalink to this heading"></a></h1>
+<p>A fully tested, stable version of WiMDA is available in 32-bit, and additionally a
+64-bit version is available for beta testing. We recommend using the 32-bit
+version until the 64-bit version has been fully tested.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<p>WiMDA requires the following (free) software packages to run successfully:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Ghostscript</strong> - this is software which GLE needs to be able to plot successfully.
+It can be downloaded from <a class="reference external" href="https://www.ghostscript.com/">https://www.ghostscript.com/</a> (click ‘Download’ then
+‘Ghostscript’, then select either the 32- or 64-bit version).</p></li>
+<li><p><strong>GLE</strong> - this is a plotting tool which is used by WiMDA to produce publication-quality
+figures. It can be downloaded from <a class="reference external" href="https://glx.sourceforge.io/">https://glx.sourceforge.io/</a> (this website also
+contains a good user guide and examples detailing how to use the program). Make sure
+the architecture matches that of the ghostscript library you have installed on your
+system: a 64-bit version of GLE will not work with a 32-bit version of Ghostscript.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>A full GLE installation also requires a LATEX distribution to be
+installed on your system, but this is <em>not</em> required for WiMDA.</p>
+</div>
+</section>
+<section id="installation">
+<span id="wininstall"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<section id="installing-on-windows-computers">
+<h3>Installing on Windows Computers<a class="headerlink" href="#installing-on-windows-computers" title="Permalink to this heading"></a></h3>
+<p>To install WiMDA on Windows, after installing the prerequisites above
+first download either the
+<a class="reference external" href="http://shadow.nd.rl.ac.uk/wimda/download/currentwimda/WiMDA-32bit.zip">32-bit package</a> or
+the <a class="reference external" href="http://shadow.nd.rl.ac.uk/wimda/download/currentwimda/WiMDA-64bit.zip">(beta) 64-bit package</a>.
+Installing WiMDA is a matter of simply decompressing these zip
+archives on your system in the location you wish to install WiMDA. The
+program can be run by running wimda.exe.</p>
+</section>
+<section id="installing-on-mac-linux-computers">
+<h3>Installing on Mac/Linux Computers<a class="headerlink" href="#installing-on-mac-linux-computers" title="Permalink to this heading"></a></h3>
+<p>Although WiMDA cannot run on Mac/Linux systems natively, it is able to
+work using <a class="reference external" href="https://www.winehq.org/">Wine</a>, which is an emulation framework which allows windows
+programs to run under unix-based systems. The easiest way to install
+Wine is using a package manager, for example on MacOS one could use
+<a class="reference external" href="https://brew.sh/">HomeBrew</a> and run (in Terminal):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">wine</span><span class="o">-</span><span class="n">stable</span>
+</pre></div>
+</div>
+<p>On Ubuntu-like systems Wine can be installed using apt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">wine</span><span class="o">-</span><span class="n">stable</span>
+</pre></div>
+</div>
+<p>Once Wine is installed, follow the Windows instructions
+<a class="reference internal" href="#wininstall"><span class="std std-ref">above</span></a>. To
+run wine.exe, you may need to go to terminal and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">wine</span><span class="o">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="setting-up-wimda">
+<span id="wimda-setup"></span><h2>Setting up WiMDA<a class="headerlink" href="#setting-up-wimda" title="Permalink to this heading"></a></h2>
+<p>When you run wimda.exe for the first time, you will be greeted with a
+dialog prompting you to set WiMDA up. The setup dialog looks like the
+following:</p>
+<a class="reference internal image-reference" href="_images/wimda_setup.PNG"><img alt="The WiMDA setup window" class="align-center" src="_images/wimda_setup.PNG" style="width: 400px;" /></a>
+<p>The fields are as follows:</p>
+<table class="docutils align-default" id="id1" style="width: 100%">
+<caption><span class="caption-text">Setup window fields</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Raw data directory</p></td>
+<td><p>Location of the raw muon data to be analysed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Analysis directory</p></td>
+<td><p>Location where the analysis files should be written to
+(e.g. fit logs, fit tables, etc).</p></td>
+</tr>
+<tr class="row-even"><td><p>Fit library directory</p></td>
+<td><p>Location where the user-created fit libraries should be
+loaded from.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Temporary directory</p></td>
+<td><p>Location where the temporary files are stored.</p></td>
+</tr>
+<tr class="row-even"><td><p>GLE command</p></td>
+<td><p>The location of the gle executable (see below).</p></td>
+</tr>
+<tr class="row-odd"><td><p>GLE version</p></td>
+<td><p>The version of GLE you have installed on your system
+(most likely 4.x).</p></td>
+</tr>
+<tr class="row-even"><td><p>Output format</p></td>
+<td><p>The output format of the plots produced by the model fitting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Decompress command</p></td>
+<td><p>The command used to decompress compressed data files.</p></td>
+</tr>
+<tr class="row-even"><td><p>Compressed file extension</p></td>
+<td><p>The extension of compressed files: WiMDA will automatically
+decompress any files using the decompress command which have this
+file extension.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Extension separator character</p></td>
+<td><p>The character your system uses to separate filenames from their
+extension. You are <em>very</em> unlikely to need to change this!</p></td>
+</tr>
+</tbody>
+</table>
+<p>Most of these settings can be kept the way they are, apart from the
+GLE command: this should be replaced with the location GLE is installed
+on your system. This is usually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)</span>\<span class="n">GLE</span>\<span class="nb">bin</span>\<span class="n">gle</span><span class="o">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+<p>for the 32-bit version of GLE and</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">GLE</span>\<span class="nb">bin</span>\<span class="n">gle</span><span class="o">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+<p>for the 64-bit.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="WiMDA Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="analysis_tutorial_TEMPO.html" class="btn btn-neutral float-right" title="Data Analysis Tutorial : Cl-TEMPO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, STFC-ISIS Muon Facility.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

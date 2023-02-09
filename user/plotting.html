@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plotting &mdash; Wimda Documentation  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Analyse" href="analyse.html" />
+    <link rel="prev" title="Grouping" href="grouping.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Wimda Documentation
+              <img src="_static/WiMDAicon.ico" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing WiMDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis_tutorial_TEMPO.html">Data Analysis Tutorial : Cl-TEMPO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_menu.html">WiMDA Main Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logbook.html">Logbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grouping.html">Grouping</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plotting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#plot-window">Plot Window</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#saving-the-plot">Saving the plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plot-parameters">Plot Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plot-data-group">Plot data group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-mode">Plot mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-style">Plot style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#muon-type">Muon Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rotating-reference-frame-rrf">Rotating Reference Frame (RRF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#axes">Axes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analyse.html">Analyse</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wimda Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Plotting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/plotting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="plotting">
+<h1>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading"></a></h1>
+<section id="plot-window">
+<h2>Plot Window<a class="headerlink" href="#plot-window" title="Permalink to this heading"></a></h2>
+<p>To launch the main plot window, go to the main menu and click ‘Plot’ then ‘Data’. A window
+will come up which looks like the following:</p>
+<a class="reference internal image-reference" href="_images/wimda_plot.png"><img alt="WiMDA's plot window" class="align-center" src="_images/wimda_plot.png" style="width: 500px;" /></a>
+<section id="saving-the-plot">
+<h3>Saving the plot<a class="headerlink" href="#saving-the-plot" title="Permalink to this heading"></a></h3>
+<p>This plot can be saved by clicking the ‘Save’ button at the top, which launches a menu allowing
+one to save the data in this plot, save the data <em>and</em> the fit (in one file), or just the fit.
+If you have a lot of successive runs you wish to save, click ‘Batch save data’ and type in the first
+and last run you want to save. By default, data will be saved in the analysis directory, and will
+be saved in a plain text format suitable for most other plotting and fitting programs. If you don’t
+want to save all the data in the plot, the x-range can be set with the relevant option in the menu.</p>
+<p>Cursor stuff?</p>
+</section>
+</section>
+<section id="plot-parameters">
+<h2>Plot Parameters<a class="headerlink" href="#plot-parameters" title="Permalink to this heading"></a></h2>
+<p>The plot can be changed with the plot parameters window, which can be launched from the WiMDA
+main menu by clicking ‘Plot’ and then ‘Parameters’. The window looks like the following:</p>
+<a class="reference internal image-reference" href="_images/wimda_plot_parameters.png"><img alt="WiMDA's plot parameters window" class="align-center" src="_images/wimda_plot_parameters.png" style="width: 500px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After making changes in this window, you may need to click on the plot window for
+it to update</p>
+</div>
+<section id="plot-data-group">
+<h3>Plot data group<a class="headerlink" href="#plot-data-group" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>All groups</strong> Plot each group as a separate graph</p></li>
+<li><p><strong>F-B group</strong> Plot the forward and backwards group (use this for F/B asymmetry)</p></li>
+<li><p><strong>Selected group</strong> Plot only the group specified in the box below this radio button</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="plot-mode">
+<h3>Plot mode<a class="headerlink" href="#plot-mode" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>When plotting single groups, you have the following options:</strong></dt><dd><ul class="simple">
+<li><p><strong>Raw plot</strong> Plot the raw number of counts as a function of time</p></li>
+<li><p><strong>Log plot</strong> As raw plot, but with a logarithmic (base 10) scale</p></li>
+<li><p><strong>Asym plot</strong> Plot the raw counts multiplied by <span class="math notranslate nohighlight">\(\exp(t/\tau_\mu)\)</span>.</p></li>
+<li><p><strong>Freq plot</strong> Plot the frequency spectrum (use the Fourier window to change the FFT parameters)</p></li>
+</ul>
+</dd>
+<dt><strong>When plotting in F-B mode, you have the following additional options:</strong></dt><dd><ul class="simple">
+<li><p><strong>F-B asym</strong> Plot the forwards-backwards asymmetry</p></li>
+<li><p><strong>F-B overlay</strong> Plot the forwards and backwards counts on the same graph, with the exponential
+decay removed by multiplying the data by <span class="math notranslate nohighlight">\(\exp(t/\tau_\mu)\)</span></p></li>
+<li><p><strong>F-B freq</strong> Plot the fourier spectrum of the F-B asymmetry (use the Fourier window to change the FFT parameters)</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="plot-style">
+<h3>Plot style<a class="headerlink" href="#plot-style" title="Permalink to this heading"></a></h3>
+<p>This area lets you change the style of the points, and allows you to not show the error bars. The ‘Overlay’ option
+keeps the current data on the graph when using the ‘LOAD’ buttons on the main menu to change between runs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These options only change how the data is displayed – when analysing the data, only the current run will be
+fitted.</p>
+</div>
+</section>
+<section id="muon-type">
+<h3>Muon Type<a class="headerlink" href="#muon-type" title="Permalink to this heading"></a></h3>
+<p>This lets you change the decay lifetime of the muon, which is useful for <span class="math notranslate nohighlight">\(\mu^-\)</span> SR experiments. To do this,
+select ‘Minus’ and then change the lifetime in the box next to <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+</section>
+<section id="rotating-reference-frame-rrf">
+<h3>Rotating Reference Frame (RRF)<a class="headerlink" href="#rotating-reference-frame-rrf" title="Permalink to this heading"></a></h3>
+<p>The rotating reference frame transformation is useful for analysing high frequency signals. This feature allows one to
+transform the data from the lab frame into a frame which rotates at a frequency close to (but not quite) the muon
+precession frequency, which makes high-frequency relaxation processes easier to observe.</p>
+<p>Specifically, the RRF transformation with a reference frame frequency of <span class="math notranslate nohighlight">\(\omega_{\rm RRF}\)</span> and phase of
+<span class="math notranslate nohighlight">\(\phi\)</span> transforms the asymmetry data in the lab frame (<span class="math notranslate nohighlight">\(A_{\rm lab}\)</span>) to the rotating frame by
+<span class="math notranslate nohighlight">\(A_{\rm RRF}(t)=A_{\rm lab}\cos(\omega_{\rm RRF}t+\phi)\)</span>. <span class="math notranslate nohighlight">\(\omega_{\rm RRF}\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> are set by
+top-right and bottom-left boxes of the Rotating Reference Frame panel respectively, and the box at the bottom-right
+(with the label ‘µs smooth’) smooths out the points by averaging over the specified time period.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In WiMDA, this transformation is only applied visually – it is not possible to fit RRF data.</p>
+</div>
+</section>
+<section id="axes">
+<h3>Axes<a class="headerlink" href="#axes" title="Permalink to this heading"></a></h3>
+<p>This section controls the axes limits and ticks on the plot. Ticking the ‘Autoscale’ options adjusts the axes so that
+all of the data and errors are visible on the plot. The units of the x-axis can be changed using the radio buttons on
+the right-hand side of the panel.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Ticking ‘Autoscale X+Y’ often results in asymmetry plots having too large a Y-axis range due to the large
+errors on the data at late times. A good starting point is to set the X-axis maximum to 8 µs, and autoscaling Y.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changing the axis limits does not affect the range of data which will be fitted – it is only possible to
+change this in the Analyse window.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="grouping.html" class="btn btn-neutral float-left" title="Grouping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="analyse.html" class="btn btn-neutral float-right" title="Analyse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, STFC-ISIS Muon Facility.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

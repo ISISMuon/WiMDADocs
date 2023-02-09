@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analysis Tutorial : Ni &mdash; Wimda Documentation  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Wimda Documentation
+              <img src="_static/WiMDAicon.ico" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing WiMDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis_tutorial_TEMPO.html">Data Analysis Tutorial : Cl-TEMPO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_menu.html">WiMDA Main Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logbook.html">Logbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grouping.html">Grouping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyse.html">Analyse</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wimda Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data Analysis Tutorial : Ni</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/analysis_tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-analysis-tutorial-ni">
+<h1>Data Analysis Tutorial : Ni<a class="headerlink" href="#data-analysis-tutorial-ni" title="Permalink to this heading"></a></h1>
+<p>This tutorial will take you through the analysis of Nickel, a ferromagnet
+with a transition temperature of around 620 K. Data can be dowloaded
+from <a class="reference download internal" download="" href="_downloads/c5c5e97346e6a4e2660695914cd513ad/Ni_training_data.zip"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>. Decompress this
+in a convenient location on your PC.</p>
+<section id="opening-the-data">
+<h2>Opening the data<a class="headerlink" href="#opening-the-data" title="Permalink to this heading"></a></h2>
+<p>To open the data, on the WiMDA main menu click ‘File’ then ‘Open’</p>
+<a class="reference internal image-reference" href="_images/wimda_open.PNG"><img alt="Opening muon data" class="align-center" src="_images/wimda_open.PNG" style="width: 400px;" /></a>
+<p>Next, click ‘Browse’ and locate the data on your computer. Select any one of the
+.nxs files in the folder and click ‘Load’. This will load the data into the
+program, and several windows will open.</p>
+</section>
+<section id="creating-a-logbook">
+<h2>Creating a logbook<a class="headerlink" href="#creating-a-logbook" title="Permalink to this heading"></a></h2>
+<p>When you have a few data files, it is a good idea to view a summary of what data
+the files contain. This can be done in WiMDA by creating a logbook: To create
+one, on the WiMDA main menu, click ‘Logbook’. This will bring up a window
+which looks like the following:</p>
+<a class="reference internal image-reference" href="_images/wimda_logbook_empty.PNG"><img alt="WiMDA Logbook" class="align-center" src="_images/wimda_logbook_empty.PNG" style="width: 600px;" /></a>
+<p>In the ‘From run’ and ‘To run’ text boxes, type in the lowest and highest
+run numbers you are interested in: for our data, this is from 35560 to 35579.
+Type these numbers in and click ‘Load’. The run headers will now be visible:</p>
+<a class="reference internal image-reference" href="_images/wimda_logbook_Ni.PNG"><img alt="WiMDA Logbook with Ni data" class="align-center" src="_images/wimda_logbook_Ni.PNG" style="width: 600px;" /></a>
+<p>The order of these headers are run number, comment, temperature, applied field,
+start date and time, statistics, aux log 1, aux log 2, slits. (the aux logs can be
+defined at the top; we will not be using these for this tutorial).</p>
+<p>You can see from this that there is a run with a 20 G applied field (number 35560,
+which is a transverse field calibration run), then zero field runs cooling down
+from 650 K to 600 K, then warming from 580 K to 598 K. Comments can be written
+in this window above and below the run header lines, and the file can be saved
+using the ‘Save’ button at the top.</p>
+</section>
+<section id="grouping-and-calibrating">
+<h2>Grouping and Calibrating<a class="headerlink" href="#grouping-and-calibrating" title="Permalink to this heading"></a></h2>
+<p>Now we know that run 35560 is the TF20 calibration run, we should open this one first.
+In the WiMDA main menu type 35560 in the text box and click ‘Load’. This will show the
+data in the plot window, but the axis limits will need to be changed to show the
+oscillations – go to the plot parameters window, and change the axis scale so that
+the oscillations are visible (unticking autoscale X+Y, setting X maximum to 10 and
+autoscaling Y are good options). You should end up with a plot which looks like this:</p>
+<a class="reference internal image-reference" href="_images/wimda_plot_Ni_pregroup.PNG"><img alt="WiMDA TF20 plot pre grouping" class="align-center" src="_images/wimda_plot_Ni_pregroup.PNG" style="width: 600px;" /></a>
+<p>The data still doesn’t look quite right – the asymmetry starts at -20%! This is because
+the grouping needs to be changed: go to the grouping window, and make the forward group 2
+and the backward group 1 (click on the plot to update it). While we’re here, as we’re dealing
+with ISIS data we should add on a deadtime correction - do this in the same window by going to
+the ‘deadtime correction’ section and clicking ‘Auto Load’. This will apply a deadtime correction
+of 9.29 ns, a value which was measured at the start of the cycle and stored in each data file.</p>
+<p>Now we can calibrate our data. Under ‘Alpha Estimation’, click ‘Estimate’. This should
+change the alpha box to 1.042, which is reasonable (you should normally expect alpha
+to be between around 0.5 and 1.5; you should double-check the grouping and the run
+details if you get a value which is hugely different). Your grouping window should now look
+like this:</p>
+<a class="reference internal image-reference" href="_images/wimda_Ni_group.PNG"><img alt="WiMDA Ni group window" class="align-center" src="_images/wimda_Ni_group.PNG" style="width: 500px;" /></a>
+<p>And your plot should look like this:</p>
+<a class="reference internal image-reference" href="_images/wimda_plot_Ni_postgroup.png"><img alt="WiMDA TF20 plot post grouping" class="align-center" src="_images/wimda_plot_Ni_postgroup.png" style="width: 600px;" /></a>
+<p>At this stage, we should check that the binning is appropriate – if the data is binned
+too much, we will struggle to resolve the low temperature data which has the largest
+muon precession frequency. On the WiMDA main menu, use the ‘LOAD &gt;&gt;’ and ‘&lt;&lt; LOAD’ buttons
+to look at each of the runs. You should find that for some of the runs we get a zig-zag
+pattern at short times, with an amplitude that decays after about 2 µs. For example,
+at 582 K (run 35571), the data looks like this:</p>
+<a class="reference internal image-reference" href="_images/wimda_plot_Ni_582K_badbin.png"><img alt="Ni data at 582K, overbinned" class="align-center" src="_images/wimda_plot_Ni_582K_badbin.png" style="width: 600px;" /></a>
+<p>It looks like there are oscillations before 2 µs, but they are not resolved very well!
+Reducing the binning should help us to resolve this better. Go the the Grouping
+window, and reduce ‘Bunch factor’ to 1. After clicking on the plot, you should find that
+the oscillations are now resolved much better (it’s also a good idea to change the x limits
+again on the Plot Parameters window to show the oscillations more clearly. You should end up
+with data which looks like this:</p>
+<a class="reference internal image-reference" href="_images/wimda_plot_Ni_582K_goodbin.png"><img alt="Ni data at 582K, with appropriate binning" class="align-center" src="_images/wimda_plot_Ni_582K_goodbin.png" style="width: 600px;" /></a>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you cannot find a window, you can bring it up again using the WiMDA main menu.</p>
+</div>
+<p>We are now ready to start fitting!</p>
+</section>
+<section id="fitting-the-data">
+<h2>Fitting the data<a class="headerlink" href="#fitting-the-data" title="Permalink to this heading"></a></h2>
+<p>On the WiMDA main menu, click ‘Analyse’. This will bring up the analysis window which
+is used to define a fit function for the data:</p>
+<a class="reference internal image-reference" href="_images/wimda_analysis_initial.png"><img alt="Analysis window before selection of a fit function" class="align-center" src="_images/wimda_analysis_initial.png" style="width: 600px;" /></a>
+<p>As we can see a clear oscillation in the data (which should be expected, as Ni is
+magnetically ordered at this temperature), we can try fitting this data to the function</p>
+<div class="math notranslate nohighlight">
+\[A(t) = A_\mathrm{r}\cos(2\pi f t + \phi)e^{-\lambda t} +
+A_\mathrm{bg}e^{-\lambda_\mathrm{bg}t}\]</div>
+<p>where the first term takes into account muons stopped in the sample and precessing
+due to the magnetic ordering, and the second term takes into account muons which
+have stopped in the sample holder and relax more slowly. We can set this function up by
+changing the ‘Oscillation’ box under ‘Component 1’ to ‘Rotation Freq.’, and ensuring that
+the relaxation of this component is set to ‘Lorentzian’.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Clicking the name of the fit function will bring up a dialog with further details of
+the function.</p>
+</div>
+<p>We should also help the fitting algorithm out by giving some good initial guesses of the
+values. Looking at the data, the baseline asymmetry looks like it’s about 5 %, and
+the relaxing asymmetry is about 4 %. The precession frequency looks like its about 7 MHz,
+the phase looks about zero, and then the relaxation rate is about 0.5 µs<sup>-1</sup>.
+We expect the baseline relaxation to be very slow, so lets put 0.01 µs<sup>-1</sup>,
+so we can keep that how it is.</p>
+<p>For now, lets let everything vary and see how we get on – so untick all the ‘fix’
+checkboxes next to the variables we’ve changed. Your analysis window should now look like
+this:</p>
+<a class="reference internal image-reference" href="_images/wimda_analysis_guess.png"><img alt="Analysis window with a fit function guess" class="align-center" src="_images/wimda_analysis_guess.png" style="width: 600px;" /></a>
+<p>We can see how closely our fit function matches the data by clicking ‘Plot’. It’s not
+too bad, so click ‘Fit’ and see what happens. The fit log window should open,
+which tells you information about the fit:</p>
+<a class="reference internal image-reference" href="_images/wimda_fitlog_1.png"><img alt="Wimda fit log window" class="align-center" src="_images/wimda_fitlog_1.png" style="width: 600px;" /></a>
+<p>The values in the analysis window will also be updated with the fitted values of
+each parameter. From this, it looks like we did well – our <span class="math notranslate nohighlight">\(\chi^2\)</span> per d.o.f.
+is 1.026! But look at the results closely: we have a <em>negative</em> relaxing asymmetry,
+which doesn’t make much sense. This is because the sign of the relaxing asymmetry
+and the phase of the cosine term playoff with each other (because
+<span class="math notranslate nohighlight">\(A\cos(\theta+180^\circ)=-Acos(\theta)\)</span>), which we need to fix. On the
+analysis window, change the phase of the oscillating component back to zero, and
+make the relaxing asymmetry positive and click fit again. The fit log window should
+now look like this:</p>
+<a class="reference internal image-reference" href="_images/wimda_fitlog_2.png"><img alt="Wimda fit log window after fit corrections" class="align-center" src="_images/wimda_fitlog_2.png" style="width: 600px;" /></a>
+<p>You can also see how good the fit is by checking the color of the text at the bottom
+left of the Analyse window – as this is green, we’re good to go!</p>
+</section>
+<section id="creating-and-populating-a-fit-table">
+<h2>Creating and populating a fit table<a class="headerlink" href="#creating-and-populating-a-fit-table" title="Permalink to this heading"></a></h2>
+<p>We should now create a fit table so that we can compare the different fits from each
+of the temperature points. On the analyse window, click ‘Add to fit table’. This will
+first open a save dialog for you to choose where to save it, and once this is done you
+will be greeted with a window which looks like the following:</p>
+<a class="reference internal image-reference" href="_images/wimda_fittable_initial.png"><img alt="Wimda fit table window" class="align-center" src="_images/wimda_fittable_initial.png" style="width: 600px;" /></a>
+<p>The symbol ‘!’ is used to denote a comment line, which will be ignored when we use this
+table later to fit a model to the results.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not delete the column heading lines: doing so may result in a ‘Range check error’</p>
+</div>
+<p>Let’s now fit more data points and add them to the fit table – use the Logbook to identify
+the run numbers to load to increase the temperature, and use the analyse window to fit each one,
+adding the result to the fit table each time (the oscillations disappear above 610 K, so
+do not fit these for now). Your fit table should look like this:</p>
+<a class="reference internal image-reference" href="_images/wimda_fittable_osc.png"><img alt="Wimda fit table window with oscillation fits" class="align-center" src="_images/wimda_fittable_osc.png" style="width: 600px;" /></a>
+</section>
+<section id="refining-a-fit">
+<h2>Refining a fit<a class="headerlink" href="#refining-a-fit" title="Permalink to this heading"></a></h2>
+<p>Now take a look closely at the results – it looks like the baseline lambda
+(<span class="math notranslate nohighlight">\(\lambda_\mathrm{bg}\)</span>) doesn’t change much as a function of temperature, so it might be
+worth fixing. We can find the average of all these values by going to Tools then ‘Column Ave’.
+Use the up and down arrows to go to column 15, and this should show an average value of
+0.0272(38) µs<sup>-1</sup>.</p>
+<p>Lets now do the fitting again, with the baseline lambda fixed. Load the data corresponding
+to a temperature of 582 K (use the Logbook to find the run number), and set the initial
+values of the fit parameters to appropriate values. Change the ‘baseline lambda’ to 0.0272
+(from the average of the fit table) and fix it by checking tickbox next to it.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can load all the parameters of a previous fit by clicking ‘Load’ in the Analyse window,
+and opening file called &lt;run_number&gt;.fit.</p>
+</div>
+<p>Now click ‘Fit’, and if you’re happy with the result, create a new fit table (go to the fit
+table window, click ‘File’ then ‘New’) and add this fit ot the table. Now fit the rest of the
+dataset by loading the data for increasing temperature, adding to the fit table each time.
+Your final fit table should look like the following:</p>
+<a class="reference internal image-reference" href="_images/wimda_fittable_withfixes.png"><img alt="Wimda fit table window with oscillation fits" class="align-center" src="_images/wimda_fittable_withfixes.png" style="width: 600px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that for the run at 580K, the frequency seems to go down and the relaxing amplitude
+drops. This is due to the precession time being too close to the incoming muon pulse width,
+leading to a reduction in precession amplitude and a characteristic phase shift.</p>
+</div>
+</section>
+<section id="fitting-a-model-to-the-data">
+<h2>Fitting a model to the data<a class="headerlink" href="#fitting-a-model-to-the-data" title="Permalink to this heading"></a></h2>
+<p>Now we have successfully fitted the data, we can now try fitting a model to the fitting
+results to learn what’s going on inside the material. On the WiMDA main menu, click ‘Model’.
+Two new windows should open: one called ‘Model’, and another called ‘Model Plot’.</p>
+<p>Lets start off by plotting the muon precession frequency vs temperature. On the ‘Model’
+window, change the ‘X-Ordinate’ and ‘Y-Ordinate’ column boxes to the columns in the fit
+table (columns 4 and 9 respectively), and set the error of the ‘Y-Ordinate’ to ‘Column’
+set this to the column in the fit table corresponding to the errors on the frequency
+(column 10). Now, in the ‘Model Plot’ window, click ‘Plot’. A QGLE window should open,
+plotting the fitted precession frequency against temperature. Use the relevant boxes in the
+‘Model Plot’ window to add labels to the x and y axis. The result should look like this:</p>
+<a class="reference internal image-reference" href="_images/QGLE_model_plot.png"><img alt="QGLE plot showing the fit results (pre- model fit)" class="align-center" src="_images/QGLE_model_plot.png" style="width: 600px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using WiMDA on Mac/Linux, QGLE might not run when you click ‘Plot’.
+Check out the Troubleshooting page if this happens. TODO: write troubleshooting page</p>
+</div>
+<p>You might notice the anomalous point at 600K: If you look closely at the logbook, you
+will notice that this only had 5MEv of data compared to nearly 20 for the other points,
+so this can safely be ignored – this can be done by putting an exclamation mark at the start
+of the relevant line in the fit table.</p>
+<p>Now, in the ‘Model’ window, under ‘Fitting Model’ change the ‘Model’ to
+‘Internal field vs T for ordered magnet’. This is the phenomenological
+function</p>
+<div class="math notranslate nohighlight">
+\[f(T) = B_0\Bigg(1-\bigg(\frac{T}{T_c}\bigg)^\alpha\Bigg)^\beta + B_\mathrm{bg}\]</div>
+<p>which models both the low-temperature regime (using the <span class="math notranslate nohighlight">\(\alpha\)</span> exponent) and the
+critical regime (using the <span class="math notranslate nohighlight">\(\beta\)</span> critical exponent). We would normally
+expect <span class="math notranslate nohighlight">\(\alpha\)</span> to be around 1–3 (from Bloch’s theory of spin waves) and
+<span class="math notranslate nohighlight">\(\beta\)</span> to be around 0.3 (from the theory of the critical behaviour of magnets).
+As we have no low-temperature data (the lowest temperature we deal with is
+580K!), in an attempt to stop the fitting parameters playing off with each other
+we can try fixing <span class="math notranslate nohighlight">\(\alpha=1\)</span>, as this will have a very small effect
+on the behaviour in the critical regime. Set the initial value of <span class="math notranslate nohighlight">\(\beta=0.3\)</span>
+and <span class="math notranslate nohighlight">\(B_0=50\)</span>MHz (as a rough guess, extrapolating from the data we have),
+<span class="math notranslate nohighlight">\(T_\mathrm{c}=620\)</span>K and fix <span class="math notranslate nohighlight">\(B_\mathrm{bg}=0\)</span>. The Model window
+should now look like the following:</p>
+<a class="reference internal image-reference" href="_images/wimda_model_prefit.png"><img alt="Wimda model fit window before fitting" class="align-center" src="_images/wimda_model_prefit.png" style="width: 300px;" /></a>
+<p>Now click ‘Fit’. The ‘Fit log’ window will open, and the values not fixed
+in the Model window will be updated with their fitted values.</p>
+<a class="reference internal image-reference" href="_images/wimda_model_postfit.png"><img alt="Wimda model fit window after fitting" class="align-center" src="_images/wimda_model_postfit.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="_images/wimda_model_fitlog.png"><img alt="Wimda model fit log" class="align-center" src="_images/wimda_model_fitlog.png" style="width: 400px;" /></a>
+<p>To view the fit, on the ‘Model Plot’ window click ‘Plot’. The fit visually looks OK
+for the data <span class="math notranslate nohighlight">\(580 \leq T &lt; 600\)</span>K, but it struggles to account for the single
+data point at 610 K. This is because we only have one temperature in the critical
+regime, which makes it difficult to draw too many reliable conclusions as to the nature
+of the critical behaviour.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>To make the fit curve look smooth around the critical region, make sure
+‘Fit Function xmax’ is equal to (or greater than) <span class="math notranslate nohighlight">\(T_\mathrm{c}\)</span>.</p>
+</div>
+<a class="reference internal image-reference" href="_images/Ni_fit.png"><img alt="Final Ni critical behaviour fit" class="align-center" src="_images/Ni_fit.png" style="width: 600px;" /></a>
+<p>Looking in the fit log window, <span class="math notranslate nohighlight">\(T_\mathrm{c}\)</span> comes out to be 617.7(6)K, which
+isn’t too far from the accepted value of 628K. (why is it so different? dynamic timescales
+being shorter than the field inhomogenity relaxation causing low field data to be washed out?)</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, STFC-ISIS Muon Facility.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
