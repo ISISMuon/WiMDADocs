@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WiMDA Continuous Integration &mdash; Wimda Developer Documentation  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="WiMDA Developer Setup" href="gettingstarted.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Wimda Developer Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">WiMDA Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">WiMDA Developer Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WiMDA Continuous Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#github-repository">GitHub repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wimda-build-machine">WiMDA build machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-actions-configuration">GitHub Actions Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generate-release-package">Generate Release Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-source-code">Build Source Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-zip-file-of-executables">Create zip file of executables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-installers">Create installers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#release-created-in-github">Release created in GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#process-pull-request">Process Pull Request</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#code-checkout">Code Checkout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-code-formatting">Check code formatting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-build">Code build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-system-tests">Run system tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wimda Developer Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">WiMDA Continuous Integration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/continuousintegration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wimda-continuous-integration">
+<h1>WiMDA Continuous Integration<a class="headerlink" href="#wimda-continuous-integration" title="Permalink to this heading"></a></h1>
+<p>These notes are aimed at WiMDA developers and explain how some of the tooling around the WiMDA software operates. They explain how to use the tooling and workflows as they are currently set up and they then go on to explain how the tools have been set up in case modifications are required to the configuration.</p>
+<section id="github-repository">
+<h2>GitHub repository<a class="headerlink" href="#github-repository" title="Permalink to this heading"></a></h2>
+<p>The WiMDA GitHub repository has been configured to normalize line endings on pushing code up to the repository via the <code class="docutils literal notranslate"><span class="pre">text=auto</span></code> configuration in the .gitattributes file.
+Since the Delphi source code can only compiled on Windows this is arguably overkill but it is commonly done on GitHub repositories so has been repeated here.</p>
+<p>The Delphi form units (.dfm) have all been configured as text to support generating diff’s between versions of these files.
+There is some variation in the tags written to the .dfm files by different versions of Delphi and so these files can be subject to unexpected changes when the associated code unit is changed eg very small changes in widgets position or dimensions.</p>
+</section>
+<section id="wimda-build-machine">
+<h2>WiMDA build machine<a class="headerlink" href="#wimda-build-machine" title="Permalink to this heading"></a></h2>
+<p>The WiMDA build machine is <code class="docutils literal notranslate"><span class="pre">wimdabuildserv</span></code>. It is a Windows virtual machine on the ISIS Hyper-V virtual infrastructure with Delphi Professional installed and Inno Setup installed on it.</p>
+<p>A user account called <code class="docutils literal notranslate"><span class="pre">WimdaBuildUser</span></code> has been set up to run various build actions (see GitHub actions below) and it is also possible to login to the machine as this user.</p>
+<p>Note: the free Community licence for Delphi doesn’t include the command line compiler at the time of writing so the build machine uses a Delphi Professional licence. The terms of the Delphi licences are such that the build machine doesn’t require its own dedicated licence. The licence of an interactive user can be reused.</p>
+<p>Note: if the Delphi IDE needs to be updated it may need to be opened up when interactively logged in as WimdaBuildUser before the command line compiler works. This was necessary after the initial Delphi install. Opening up the Delphi IDE creates a EnvOptions.proj file in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;user</span> <span class="pre">id&gt;\AppData\Roaming</span></code> that the command line compiler requires.</p>
+</section>
+<section id="github-actions-configuration">
+<h2>GitHub Actions Configuration<a class="headerlink" href="#github-actions-configuration" title="Permalink to this heading"></a></h2>
+<p>Two GitHub actions workflows have been set up:</p>
+<ul class="simple">
+<li><p>Generate release</p></li>
+<li><p>Process pull request</p></li>
+</ul>
+<img alt="_images/GitHubActions.PNG" src="_images/GitHubActions.PNG" />
+<p>The Wimda build machine has been configured as a self-hosted runner to execute the workflows. The runner operates via a Windows service called “GitHub Actions Runner” that picks up processing tasks when GitHub detects user actions relating to the workflows (see description of individual workflows for more details).</p>
+<p>In addition to responding automatically to certain trigger events, both jobs can be run manually from the GitHub web site for the repository. This is achieved by setting the workflow to respond to <code class="docutils literal notranslate"><span class="pre">workflow_dispatch</span></code> events.</p>
+<p>The details of the workflows are stored in .yml files in the <code class="docutils literal notranslate"><span class="pre">.github\workflows</span></code> folder.</p>
+<section id="generate-release-package">
+<h3>Generate Release Package<a class="headerlink" href="#generate-release-package" title="Permalink to this heading"></a></h3>
+<p>This job is typically run manually from the GitHub user interface but it can also be triggered automatically when a tag is pushed to GitHub.
+A git tag can be created using a command like <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">-a</span> <span class="pre">v1.3</span> <span class="pre">-m</span> <span class="pre">&quot;WiMDA</span> <span class="pre">version</span> <span class="pre">1.3&quot;</span></code> and pushed using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">v1.3</span></code>. The job performs the following steps:</p>
+<section id="build-source-code">
+<h4>Build Source Code<a class="headerlink" href="#build-source-code" title="Permalink to this heading"></a></h4>
+<p>The code is built using the msbuild command line compiler. The <code class="docutils literal notranslate"><span class="pre">Release</span></code> configuration and the <code class="docutils literal notranslate"><span class="pre">Win32</span></code> platform are currently selected as the options for the build.</p>
+</section>
+<section id="create-zip-file-of-executables">
+<h4>Create zip file of executables<a class="headerlink" href="#create-zip-file-of-executables" title="Permalink to this heading"></a></h4>
+<p>A zip file is created containing all .exe files (with the exception of WimdaTest.exe) and .dll files generated by the build</p>
+</section>
+<section id="create-installers">
+<h4>Create installers<a class="headerlink" href="#create-installers" title="Permalink to this heading"></a></h4>
+<p>Installers for a 32 bit and a 64 bit build of WiMDA are created using the Inno Setup installer tool. This step downloads the installers for a specific version of GLE and Ghostscript from the vendors’ websites.</p>
+</section>
+<section id="release-created-in-github">
+<h4>Release created in GitHub<a class="headerlink" href="#release-created-in-github" title="Permalink to this heading"></a></h4>
+<p>A draft release is created in GitHub using either the tag name pushed or (if the job was initiated via the GitHub UI) the version label supplied. This can be viewed at <a class="reference external" href="https://github.com/ISISMuon/WiMDA/releases">https://github.com/ISISMuon/WiMDA/releases</a>.
+The release will have the installers and the zip file of the executables attached to it.</p>
+<p>The following changes take place when the draft release is published:</p>
+<ul class="simple">
+<li><p>if the job was initiated via the GitHub UI the tag will be created</p></li>
+<li><p>a zip file containing the source code will be created and attached to the release</p></li>
+</ul>
+</section>
+</section>
+<section id="process-pull-request">
+<h3>Process Pull Request<a class="headerlink" href="#process-pull-request" title="Permalink to this heading"></a></h3>
+<p>This job runs when a pull request is created or when updated code is pushed to an existing pull request. Note that if code is directly pushed to “main” without creating a pull request then these checks will not be performed. The following automated checks are run on the code:</p>
+<section id="code-checkout">
+<h4>Code Checkout<a class="headerlink" href="#code-checkout" title="Permalink to this heading"></a></h4>
+<p>The changes in the feature branch are merged with the latest code in the main branch and checked out to the build machine.</p>
+</section>
+<section id="check-code-formatting">
+<h4>Check code formatting<a class="headerlink" href="#check-code-formatting" title="Permalink to this heading"></a></h4>
+<p>Checks the code is formatted correctly by running a code format process on the source code and checking for any changes made. If the code isn’t formatted correctly a git patch file is created containing the required changes
+The format rules are applied using the Formatting feature available in the Delphi IDE. The formatting rules are specified in a file called <code class="docutils literal notranslate"><span class="pre">Formatter_Wimda.config</span></code>. At the time of writing, the checks are a subset of the standard formatting rules including the following:</p>
+<ul class="simple">
+<li><p>standard indent of 2 spaces</p></li>
+<li><p>spacing around operators (:=, &lt;, &gt; etc) is standardised</p></li>
+<li><p>line length set to 80 characters</p></li>
+</ul>
+<p>Capitalization has not yet been enforced because the formatter was unable to distinguish between the same name used in different contexts in a single code unit eg in Analyse.pas there is a button called FIT and a function called Fit and the formatter aligns the capitalisation of the two.</p>
+<p>This can be run manually on the source code on a local machine from the Delphi IDE (via right click menu on an individual unit or project) or by running the batch file <code class="docutils literal notranslate"><span class="pre">FormatWimdaCode.bat</span></code></p>
+</section>
+<section id="code-build">
+<h4>Code build<a class="headerlink" href="#code-build" title="Permalink to this heading"></a></h4>
+<p>The code is built on the WiMDA build machine using the msbuild command line compiler. The <code class="docutils literal notranslate"><span class="pre">Release</span></code> configuration is used and both a 32 bit and a 64 bit build are generated.</p>
+</section>
+<section id="run-system-tests">
+<h4>Run system tests<a class="headerlink" href="#run-system-tests" title="Permalink to this heading"></a></h4>
+<p>A set of system tests are run on the WiMDA build machine via an executable called WimdaTest.exe covering a range of file load, analyse fit and model fit actions. The WimdaTest.exe executable is a command line version of a DUnit test runner.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gettingstarted.html" class="btn btn-neutral float-left" title="WiMDA Developer Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, STFC-ISIS Muon Facility.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

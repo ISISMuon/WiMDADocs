@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WiMDA Installation Instructions &mdash; Wimda Developer Documentation  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="WiMDA Developer Setup" href="gettingstarted.html" />
+    <link rel="prev" title="WiMDA Developer documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Wimda Developer Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WiMDA Installation Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#uninstalling-wimda">Uninstalling WiMDA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">WiMDA Developer Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuousintegration.html">WiMDA Continuous Integration</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wimda Developer Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">WiMDA Installation Instructions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wimda-installation-instructions">
+<h1>WiMDA Installation Instructions<a class="headerlink" href="#wimda-installation-instructions" title="Permalink to this heading"></a></h1>
+<p>Two separate installers are available for 32 bit and 64 bit WiMDA. The installation instructions are the same for both. The installers will install WiMDA as well as the following dependencies:</p>
+<ul class="simple">
+<li><p>Nexus library</p></li>
+<li><p>Zlib</p></li>
+<li><p>Graphics Layout Engine (GLE) (optional)</p></li>
+<li><p>GhostScript (optional)</p></li>
+</ul>
+<p>Here is some further information on the steps that should be followed while running the installer:</p>
+<ol class="arabic simple">
+<li><p>Double click the installer .exe file</p></li>
+<li><p>Depending on whether you have administrator permissions on the computer where you’re installing WiMDA you may be asked whether to install WiMDA for all users or just for you. If you select just for you, WiMDA will be installed in your user folder under C:Users</p></li>
+<li><p>If there is already a version of WiMDA installed on the computer the installer will ask you if you want to overwrite the existing installation. Selecting No will abort the installation</p></li>
+<li><p>The initial installer screen will show you the installation location and allow you to change it. Click Next</p></li>
+<li><p>The next screen asks whether you wish to create a desktop shortcut and also whether you want to install GhostScript and GLE. Check any of the boxes required and then click Next</p></li>
+<li><p>A final “Ready To Install” screen shows you the choices made so far. If you are happy with the summary click Install</p></li>
+<li><p>If you asked for GhostScript or GLE to be installed the WiMDA installer will run the GhostScriptGLE installers in sequence and these will present further dialogsscreens in front of the master WiMDA installer screen</p></li>
+<li><p>If either the GhostScript or GLE installer ask that you reboot your machine you should select “No” so that the remainder of the WiMDA installation can proceed</p></li>
+</ol>
+<p>The installer creates a log file in your user area in C:Users&lt;userid&gt;AppDataLocalTemp. The file is called “Setup Log &lt;date&gt;.txt”</p>
+<p>When you first start WiMDA it will ask you to check some settings including paths to various folders and files that it requires. These choices can be changed later via the File, Setup menu.</p>
+<section id="uninstalling-wimda">
+<h2>Uninstalling WiMDA<a class="headerlink" href="#uninstalling-wimda" title="Permalink to this heading"></a></h2>
+<p>WiMDA can be uninstalled using the standard Windows process for uninstalling an application. On Windows 10, go to the “Apps &amp; features” screen within Settings and scroll down until you find Wimda. Click on it and then click on the “Uninstall” button</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="WiMDA Developer documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gettingstarted.html" class="btn btn-neutral float-right" title="WiMDA Developer Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, STFC-ISIS Muon Facility.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+===============================
+WiMDA Installation Instructions
+===============================
+
+Two separate installers are available for 32 bit and 64 bit WiMDA. The installation instructions are the same for both. The installers will install WiMDA as well as the following dependencies:
+
+- Nexus library
+- Zlib
+- Graphics Layout Engine (GLE) (optional)
+- GhostScript (optional)
+
+Here is some further information on the steps that should be followed while running the installer:
+
+1. Double click the installer .exe file
+2. Depending on whether you have administrator permissions on the computer where you're installing WiMDA you may be asked whether to install WiMDA for all users or just for you. If you select just for you, WiMDA will be installed in your user folder under C:\Users\ 
+3. If there is already a version of WiMDA installed on the computer the installer will ask you if you want to overwrite the existing installation. Selecting No will abort the installation
+4. The initial installer screen will show you the installation location and allow you to change it. Click Next
+5. The next screen asks whether you wish to create a desktop shortcut and also whether you want to install GhostScript and GLE. Check any of the boxes required and then click Next
+6. A final "Ready To Install" screen shows you the choices made so far. If you are happy with the summary click Install
+7. If you asked for GhostScript or GLE to be installed the WiMDA installer will run the GhostScript\GLE installers in sequence and these will present further dialogs\screens in front of the master WiMDA installer screen
+8. If either the GhostScript or GLE installer ask that you reboot your machine you should select "No" so that the remainder of the WiMDA installation can proceed
+
+The installer creates a log file in your user area in C:\Users\<userid>\AppData\Local\Temp\. The file is called “Setup Log <date>.txt”
+
+When you first start WiMDA it will ask you to check some settings including paths to various folders and files that it requires. These choices can be changed later via the File, Setup menu.
+
+Uninstalling WiMDA
+##################
+
+WiMDA can be uninstalled using the standard Windows process for uninstalling an application. On Windows 10, go to the "Apps & features" screen within Settings and scroll down until you find Wimda. Click on it and then click on the "Uninstall" button

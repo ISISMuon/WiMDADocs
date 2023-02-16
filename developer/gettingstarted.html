@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WiMDA Developer Setup &mdash; Wimda Developer Documentation  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="WiMDA Continuous Integration" href="continuousintegration.html" />
+    <link rel="prev" title="WiMDA Installation Instructions" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Wimda Developer Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">WiMDA Installation Instructions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WiMDA Developer Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#delphi-ide">Delphi IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-tools">Other tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-repository">GitHub repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code-organisation-and-building-wimda">Source code organisation and building WiMDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-workflow">Git workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="continuousintegration.html">WiMDA Continuous Integration</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wimda Developer Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">WiMDA Developer Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/gettingstarted.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wimda-developer-setup">
+<h1>WiMDA Developer Setup<a class="headerlink" href="#wimda-developer-setup" title="Permalink to this heading"></a></h1>
+<p>These notes explain how to set up a WiMDA development environment.</p>
+<section id="delphi-ide">
+<h2>Delphi IDE<a class="headerlink" href="#delphi-ide" title="Permalink to this heading"></a></h2>
+<p>At the time of writing the WiMDA code is being developed using Delphi 10.4 (also referred to as Sydney) on Windows:</p>
+<img alt="_images/DelphiIDE.PNG" src="_images/DelphiIDE.PNG" />
+<p>It is recommended that Delphi Professional 10.4 is used to align the behaviour on a developer’s desktop and the build machine.
+The command line version of the compiler used on the build machine is only available in the “paid for” Professional version of Delphi and not the free Community edition.</p>
+<p>If the free Delphi Community 10.4 version is still <a class="reference external" href="https://www.embarcadero.com/">available</a> then this will work OK for most development situations. The Community versions are only available however in the year of their release so it may be that the current Community version is 11.x.
+This will still be likely to compile the code but it may introduce some small differences into the .dfm files.
+For this reason it is preferable to use a 10.4 Professional version if a spare licence is available.</p>
+<p>During installation install the “DUnit testing frameworks”</p>
+</section>
+<section id="other-tools">
+<h2>Other tools<a class="headerlink" href="#other-tools" title="Permalink to this heading"></a></h2>
+<p>A WiMDA installer has been implemented using the free <a class="reference external" href="https://jrsoftware.org/isinfo.php">Inno Setup tool</a>.
+This tool is written in Delphi and allows custom logic to be added to the installer by writing Delphi code snippets.</p>
+<p>The WiMDA documentation is written using Sphinx.</p>
+</section>
+<section id="github-repository">
+<h2>GitHub repository<a class="headerlink" href="#github-repository" title="Permalink to this heading"></a></h2>
+<p>The WiMDA source control tools are Git and GitHub. Git should be installed locally on your development machine and it can be downloaded from <a class="reference external" href="https://git-scm.com/">here</a> .
+The WiMDA GitHub repository is located here: <a class="reference external" href="https://github.com/ISISMuon/WiMDA">https://github.com/ISISMuon/WiMDA</a></p>
+<p>The source for the WiMDA installer is in the repository.</p>
+<p>Run the following git command from a command prompt to download a copy of the source code onto your machine: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ISISMuon/WiMDA.git</span></code>.
+This will create a subfolder called WiMDA in whatever your current folder was when you ran the command.</p>
+<p>Double click the file <code class="docutils literal notranslate"><span class="pre">WimdaGroup.groupproj</span></code> to open up the Delphi source code for WiMDA.</p>
+</section>
+<section id="source-code-organisation-and-building-wimda">
+<h2>Source code organisation and building WiMDA<a class="headerlink" href="#source-code-organisation-and-building-wimda" title="Permalink to this heading"></a></h2>
+<p>A Delphi project group called WimdaGroup has been created that contains projects for:</p>
+<ul class="simple">
+<li><p>wimda.exe - the main WiMDA executable</p></li>
+<li><p>WimdaText.exe - a DUnit executable to run the WiMDA tests</p></li>
+<li><p>Musrfunctions.dll</p></li>
+<li><p>UserFit.dll</p></li>
+</ul>
+<p>Building the WimdaGroup project group will build the source code for all the projects.
+The executables are output into a separate <code class="docutils literal notranslate"><span class="pre">build</span></code> directory - specifically into a sub directory based on the selected configuration (Release vs Debug) and Platform (Win32 vs Win64).
+The Delphi project for the Wimda executable has a post build event configured which means that the relevant dependencies (eg Nexus library) are also copied from the <code class="docutils literal notranslate"><span class="pre">thirdparty</span></code> directory into the <code class="docutils literal notranslate"><span class="pre">build</span></code> directory so that the built executables should run successfully from the <code class="docutils literal notranslate"><span class="pre">build</span></code> directory.</p>
+</section>
+<section id="git-workflow">
+<h2>Git workflow<a class="headerlink" href="#git-workflow" title="Permalink to this heading"></a></h2>
+<p>Changes should ideally be developed and pushed up to GitHub on feature branches that are created from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">FeatureBranchName</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">HEAD</span></code></p>
+<p>When a feature branch is pushed to GitHub a pull request can be created and this will run various useful checks on the code including checking whether there are merge conflicts with the main branch, building the code, formatting it and running tests on the code.
+If these checks are successful, the code changes can then be merged into the “main” branch by approving and merging the pull request.</p>
+<p>The pull request will indicate whether the automated tasks have completed successfully or not. This is an example of a pull request showing a failure:</p>
+<img alt="_images/PullRequestJobFailure.PNG" src="_images/PullRequestJobFailure.PNG" />
+<p>You can inspect the cause of the problem via the <code class="docutils literal notranslate"><span class="pre">Details</span></code> link which will take you to the history of the GitHub actions job that has run.
+For example this screen indicates that the automated tasks have failed due to a formatting error:</p>
+<img alt="_images/PullRequestJobFailure_Details.PNG" src="_images/PullRequestJobFailure_Details.PNG" />
+<img alt="_images/PullRequestJobFailure_Summary.PNG" src="_images/PullRequestJobFailure_Summary.PNG" />
+<p>In this case you must adjust the formatting of the code on your local machine, commit the changes and push the updated code up to GitHub which will trigger a new run of the automated tasks.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="WiMDA Installation Instructions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="continuousintegration.html" class="btn btn-neutral float-right" title="WiMDA Continuous Integration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, STFC-ISIS Muon Facility.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
