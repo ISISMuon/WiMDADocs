@@ -18,7 +18,7 @@ WiMDA build machine
 
 The WiMDA build machine is ``wimdabuildserv``. It is a Windows virtual machine on the ISIS Hyper-V virtual infrastructure with Delphi Professional installed and Inno Setup installed on it.
 
-A user account called ``WimdaBuildUser`` has been set up to run various build actions (see GitHub actions below) and it is also possible to login to the machine as this user.
+A local user account called ``WimdaBuildUser`` has been set up to run various build actions (see GitHub actions below) and it is also possible to login to the machine as this user using the name WimdaBuildServ\WimdaBuildUser or simply .\WimdaBuildUser.
 
 Note: the free Community licence for Delphi doesn't include the command line compiler at the time of writing so the build machine uses a Delphi Professional licence. The terms of the Delphi licences are such that the build machine doesn't require its own dedicated licence. The licence of an interactive user can be reused.
 
@@ -29,6 +29,7 @@ GitHub Actions Configuration
 
 Two GitHub actions workflows have been set up:
 
+- Build And Publish Docs
 - Generate release
 - Process pull request
 
@@ -36,9 +37,19 @@ Two GitHub actions workflows have been set up:
 
 The Wimda build machine has been configured as a self-hosted runner to execute the workflows. The runner operates via a Windows service called "GitHub Actions Runner" that picks up processing tasks when GitHub detects user actions relating to the workflows (see description of individual workflows for more details). 
 
-In addition to responding automatically to certain trigger events, both jobs can be run manually from the GitHub web site for the repository. This is achieved by setting the workflow to respond to ``workflow_dispatch`` events.
+In addition to responding automatically to certain trigger events, the jobs can be run manually from the GitHub web site for the repository. This is achieved by setting the workflow to respond to ``workflow_dispatch`` events.
 
 The details of the workflows are stored in .yml files in the ``.github\workflows`` folder.
+
+Build And Publish Docs
+----------------------
+
+The user and developer documentation is published using GitHub Pages in a separate public repository at https://github.com/ISISMuon/WiMDADocs. This job compiles the documents source from the main WiMDA repository into html files using Sphinx and then pushes a commit to the WiMDADocs repository. It is currently scheduled to run once a day at midnight.
+
+The job uses an SSH key pair to perform the commit into the WiMDADocs repository. The keys were generated using the ``ssh-keygen`` tool. The public key is stored in the Settings of the WiMDADocs repository as a deploy key and the private key is set up as a secret in the main WiMDA repository.
+
+The SSH keys are in the folder ``C:\Users\WimdaBuildUser\.ssh``. The SSH tool used by GitHubActions requires that the only user that has write access to the file C:\Users\WimdaBuildUser\.ssh\config is the user running the GitHub actions (ie WimdaBuildUser). 
+This is achieved by setting the permissions on the .ssh folder to not inherit permissions from the parent. If another is added that has write access the GitHub actions job will fail.
 
 Generate Release Package
 ------------------------

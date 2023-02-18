@@ -49,6 +49,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#github-repository">GitHub repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#wimda-build-machine">WiMDA build machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#github-actions-configuration">GitHub Actions Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#build-and-publish-docs">Build And Publish Docs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generate-release-package">Generate Release Package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#build-source-code">Build Source Code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#create-zip-file-of-executables">Create zip file of executables</a></li>
@@ -106,7 +107,7 @@ There is some variation in the tags written to the .dfm files by different versi
 <section id="wimda-build-machine">
 <h2>WiMDA build machine<a class="headerlink" href="#wimda-build-machine" title="Permalink to this heading"></a></h2>
 <p>The WiMDA build machine is <code class="docutils literal notranslate"><span class="pre">wimdabuildserv</span></code>. It is a Windows virtual machine on the ISIS Hyper-V virtual infrastructure with Delphi Professional installed and Inno Setup installed on it.</p>
-<p>A user account called <code class="docutils literal notranslate"><span class="pre">WimdaBuildUser</span></code> has been set up to run various build actions (see GitHub actions below) and it is also possible to login to the machine as this user.</p>
+<p>A local user account called <code class="docutils literal notranslate"><span class="pre">WimdaBuildUser</span></code> has been set up to run various build actions (see GitHub actions below) and it is also possible to login to the machine as this user using the name WimdaBuildServWimdaBuildUser or simply .WimdaBuildUser.</p>
 <p>Note: the free Community licence for Delphi doesn’t include the command line compiler at the time of writing so the build machine uses a Delphi Professional licence. The terms of the Delphi licences are such that the build machine doesn’t require its own dedicated licence. The licence of an interactive user can be reused.</p>
 <p>Note: if the Delphi IDE needs to be updated it may need to be opened up when interactively logged in as WimdaBuildUser before the command line compiler works. This was necessary after the initial Delphi install. Opening up the Delphi IDE creates a EnvOptions.proj file in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;user</span> <span class="pre">id&gt;\AppData\Roaming</span></code> that the command line compiler requires.</p>
 </section>
@@ -114,13 +115,21 @@ There is some variation in the tags written to the .dfm files by different versi
 <h2>GitHub Actions Configuration<a class="headerlink" href="#github-actions-configuration" title="Permalink to this heading"></a></h2>
 <p>Two GitHub actions workflows have been set up:</p>
 <ul class="simple">
+<li><p>Build And Publish Docs</p></li>
 <li><p>Generate release</p></li>
 <li><p>Process pull request</p></li>
 </ul>
 <img alt="_images/GitHubActions.PNG" src="_images/GitHubActions.PNG" />
 <p>The Wimda build machine has been configured as a self-hosted runner to execute the workflows. The runner operates via a Windows service called “GitHub Actions Runner” that picks up processing tasks when GitHub detects user actions relating to the workflows (see description of individual workflows for more details).</p>
-<p>In addition to responding automatically to certain trigger events, both jobs can be run manually from the GitHub web site for the repository. This is achieved by setting the workflow to respond to <code class="docutils literal notranslate"><span class="pre">workflow_dispatch</span></code> events.</p>
+<p>In addition to responding automatically to certain trigger events, the jobs can be run manually from the GitHub web site for the repository. This is achieved by setting the workflow to respond to <code class="docutils literal notranslate"><span class="pre">workflow_dispatch</span></code> events.</p>
 <p>The details of the workflows are stored in .yml files in the <code class="docutils literal notranslate"><span class="pre">.github\workflows</span></code> folder.</p>
+<section id="build-and-publish-docs">
+<h3>Build And Publish Docs<a class="headerlink" href="#build-and-publish-docs" title="Permalink to this heading"></a></h3>
+<p>The user and developer documentation is published using GitHub Pages in a separate public repository at <a class="reference external" href="https://github.com/ISISMuon/WiMDADocs">https://github.com/ISISMuon/WiMDADocs</a>. This job compiles the documents source from the main WiMDA repository into html files using Sphinx and then pushes a commit to the WiMDADocs repository. It is currently scheduled to run once a day at midnight.</p>
+<p>The job uses an SSH key pair to perform the commit into the WiMDADocs repository. The keys were generated using the <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> tool. The public key is stored in the Settings of the WiMDADocs repository as a deploy key and the private key is set up as a secret in the main WiMDA repository.</p>
+<p>The SSH keys are in the folder <code class="docutils literal notranslate"><span class="pre">C:\Users\WimdaBuildUser\.ssh</span></code>. The SSH tool used by GitHubActions requires that the only user that has write access to the file C:UsersWimdaBuildUser.sshconfig is the user running the GitHub actions (ie WimdaBuildUser).
+This is achieved by setting the permissions on the .ssh folder to not inherit permissions from the parent. If another is added that has write access the GitHub actions job will fail.</p>
+</section>
 <section id="generate-release-package">
 <h3>Generate Release Package<a class="headerlink" href="#generate-release-package" title="Permalink to this heading"></a></h3>
 <p>This job is typically run manually from the GitHub user interface but it can also be triggered automatically when a tag is pushed to GitHub.
