@@ -1,0 +1,17 @@
+Welcome to the WiMDA Home Page
+==============================
+
+The latest release of WiMDA is available here https://github.com/ISISMuon/WiMDA/releases
+
+Versions currently expire after 24 months; users should download a newer version at least every 24 months to keep up with bug fixes and new features.
+
+:download:`A paper on WiMDA <wimda.pdf>` with :download:`screenshots <wimdap4.pdf>` was presented at the MUSR99 conference in Les Diablerets (August 30th - September 3rd 1999) and provides an overview of the program.
+
+Please cite this paper as F.L. Pratt, Physica B 289-290, 710 (2000) when you refer to the use of the WiMDA data analysis program in a publication.
+
+For further information and queries about WiMDA contact Francis Pratt (francis.pratt@stfc.ac.uk)
+
+..
+   Can't reference rst files outside of the root of this landing page project or use intersphinx inside a toc so put explicit html in here instead
+
+|raw_html_toc|
